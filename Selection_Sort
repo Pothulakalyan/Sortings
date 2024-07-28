@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+void myfunction(int ind,int n,vector<int>&ve){//0//5
+    if(ind>=n){
+        return;
+    }
+    int mini=ve[ind];
+    int min_ind=ind;
+    for(int i=ind;i<n;i++){
+        if(mini>ve[i]){
+            mini=ve[i];
+            min_ind=i;
+        }
+    }
+    swap(ve[ind],ve[min_ind]);
+    myfunction(ind+1,n,ve);
+    
+    
+}
+int main(){
+    vector<int>ve={7,6,1,3,25};
+    myfunction(0,ve.size(),ve);
+    for(auto it:ve){
+        cout<<it<<" "; 
+    }
+}
+
