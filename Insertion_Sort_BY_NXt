@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+steps for insertion_sort:
+    
+    step1-> start with range 2 
+    step2-> insert the last element in that range keep the its correct position
+    step3-> until order is incorrect (or) last element,lastement before is incorrect
+        to decrease  the pointer by 1
+    step4-> increase the range by 1
+
+
+void insertion_sort(int n,vector<int>&ve){
+    
+    for(int i=1;i<n;i++){
+        int j=i;
+        while(ve[j-1]>ve[j] && j>=1){
+            swap(ve[j-1],ve[j]);
+            j-=1;
+        }
+    }
+}
+int main(){
+    int n;
+    cin>>n;
+    vector<int>ve(n);
+    for(int i=0;i<n;i++){
+        cin>>ve[i];
+    }
+    insertion_sort(n,ve);
+    
+    for(auto it:ve) cout<<it<<" ";
+}
